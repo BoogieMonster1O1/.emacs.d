@@ -16,6 +16,7 @@
     which-key
     timu-macos-theme
     swift-mode
+    markdown-mode
   )
 )
 
