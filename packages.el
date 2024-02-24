@@ -17,6 +17,8 @@
     timu-macos-theme
     swift-mode
     markdown-mode
+    all-the-icons
+    treemacs-all-the-icons
   )
 )
 
