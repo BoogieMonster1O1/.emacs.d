@@ -1,7 +1,10 @@
 /*
 
+!/copilot
+
 !/.gitignore
 !/README.md
+!/.gitmodules
 
 !/init.el
 !/packages.el

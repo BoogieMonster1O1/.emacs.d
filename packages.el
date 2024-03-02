@@ -1,8 +1,8 @@
 (require 'package)
 
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'load-path "~/.emacs.d/copilot/")
 
-; list the packages you want
 (setq package-list
   '(
     use-package
@@ -19,14 +19,14 @@
     markdown-mode
     all-the-icons
     treemacs-all-the-icons
+    aggressive-indent
+    centaur-tabs
+    smooth-scrolling
+    editorconfig
+    kanagawa-theme
   )
 )
 
-
-; activate all the packages
-; (package-initialize)
-
-; install the missing packages
 (dolist (package package-list)
   (unless (package-installed-p package)
     (package-install package)))

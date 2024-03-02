@@ -66,6 +66,7 @@
     (treemacs-follow-mode t)
     (treemacs-filewatch-mode t)
     (treemacs-fringe-indicator-mode 'always)
+    (set-face-attribute 'hl-line nil :background "#444444")
     (when treemacs-python-executable
       (treemacs-git-commit-diff-mode t))
 
@@ -108,3 +109,10 @@
   :after (treemacs)
   :ensure t
   :config (treemacs-set-scope-type 'Tabs))
+
+(use-package treemacs-all-the-icons
+  :after (treemacs all-the-icons)
+  :ensure t
+  :config
+  (if (display-graphic-p)
+      (treemacs-load-theme 'all-the-icons)))
