@@ -75,7 +75,7 @@
  '(custom-safe-themes
    '("a8354a5bb676d49a45ddf1289a53034cb34fda9193f412f314bdb91c82326ee9" default))
  '(package-selected-packages
-   '(kanagawa-theme aggressive-indent all-the-icons treemacs-tab-bar treemacs-persp treemacs-magit treemacs-projectile treemacs-icons-dired lsp-ui lsp-treemacs lsp-sourcekit flycheck company)))
+   '(web-mode kanagawa-theme aggressive-indent all-the-icons treemacs-tab-bar treemacs-persp treemacs-magit treemacs-projectile treemacs-icons-dired lsp-ui lsp-treemacs lsp-sourcekit flycheck company)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

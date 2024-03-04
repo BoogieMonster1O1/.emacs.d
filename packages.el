@@ -24,6 +24,7 @@
     smooth-scrolling
     editorconfig
     kanagawa-theme
+    web-mode
   )
 )
 
