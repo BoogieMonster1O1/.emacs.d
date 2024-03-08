@@ -25,6 +25,8 @@
     editorconfig
     kanagawa-theme
     web-mode
+    wakatime-mode
+    hl-todo
   )
 )
 

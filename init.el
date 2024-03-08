@@ -21,6 +21,8 @@
 (load "~/.emacs.d/treemacs")
 (load-theme 'timu-macos t)
 
+(global-wakatime-mode)
+
 (add-to-list 'default-frame-alist
              '(font . "SF Mono-11"))
 
@@ -38,6 +40,7 @@
 (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
 
 (add-hook 'swift-mode-hook #'lsp)
+(add-hook 'swift-mode-hook #'hl-todo-mode)
 
 (use-package centaur-tabs
   :demand
@@ -67,6 +70,9 @@
 (use-package which-key
     :config
     (which-key-mode))
+
+(load "~/.emacs.d/private")
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -75,7 +81,9 @@
  '(custom-safe-themes
    '("a8354a5bb676d49a45ddf1289a53034cb34fda9193f412f314bdb91c82326ee9" default))
  '(package-selected-packages
-   '(web-mode kanagawa-theme aggressive-indent all-the-icons treemacs-tab-bar treemacs-persp treemacs-magit treemacs-projectile treemacs-icons-dired lsp-ui lsp-treemacs lsp-sourcekit flycheck company)))
+   '(hl-todo wakatime-mode web-mode kanagawa-theme aggressive-indent all-the-icons treemacs-tab-bar treemacs-persp treemacs-magit treemacs-projectile treemacs-icons-dired lsp-ui lsp-treemacs lsp-sourcekit flycheck company))
+ '(wakatime-cli-path "~/.wakatime/wakatime-cli"))
+ '(wakatime-api-key (getenv "WAKATIME_API_KEY"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
