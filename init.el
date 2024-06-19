@@ -1,5 +1,9 @@
 (load "~/.emacs.d/packages")
 
+(setq server-port 38465)
+(setq server-host "127.0.0.1")
+(setq server-auth-key "perfume")
+
 (use-package lsp-sourcekit
   :after lsp-mode
   :config
@@ -71,7 +75,30 @@
     :config
     (which-key-mode))
 
-(load "~/.emacs.d/private")
+(add-to-list 'auto-mode-alist '("\\.svelte\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+(setq web-mode-engines-alist
+      '(("svelte" . "\\.svelte\\'")))
+
+(define-derived-mode astro-mode web-mode "astro")
+(setq auto-mode-alist
+      (append '((".*\\.astro\\'" . astro-mode))
+              auto-mode-alist))
+
+(with-eval-after-load 'lsp-mode
+  (add-to-list 'lsp-language-id-configuration
+               '(astro-mode . "astro"))
+
+  (lsp-register-client
+   (make-lsp-client :new-connection (lsp-stdio-connection '("astro-ls" "--stdio"))
+                    :activation-fn (lsp-activate-on "astro")
+                    :server-id 'astro-ls)))
+
+(defun setup-lsp ()
+  (lsp-deferred))
+
+(add-hook 'web-mode-hook #'setup-lsp)
+(add-hook 'python-mode-hook #'setup-lsp)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -79,9 +106,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   '("a8354a5bb676d49a45ddf1289a53034cb34fda9193f412f314bdb91c82326ee9" default))
+   '("ee0785c299c1d228ed30cf278aab82cf1fa05a2dc122e425044e758203f097d2" "a8354a5bb676d49a45ddf1289a53034cb34fda9193f412f314bdb91c82326ee9" default))
  '(package-selected-packages
-   '(hl-todo wakatime-mode web-mode kanagawa-theme aggressive-indent all-the-icons treemacs-tab-bar treemacs-persp treemacs-magit treemacs-projectile treemacs-icons-dired lsp-ui lsp-treemacs lsp-sourcekit flycheck company))
+   '(go-mode adwaita-dark-theme lsp-tailwindcss powershell graphql-mode hl-todo wakatime-mode web-mode kanagawa-theme aggressive-indent all-the-icons treemacs-tab-bar treemacs-persp treemacs-magit treemacs-projectile treemacs-icons-dired lsp-ui lsp-treemacs lsp-sourcekit flycheck company))
  '(wakatime-cli-path "~/.wakatime/wakatime-cli"))
  '(wakatime-api-key (getenv "WAKATIME_API_KEY"))
 (custom-set-faces

@@ -27,6 +27,9 @@
     web-mode
     wakatime-mode
     hl-todo
+    graphql-mode
+    lsp-tailwindcss
+    fish-mode
   )
 )
 
